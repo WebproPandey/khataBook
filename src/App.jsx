@@ -4,6 +4,7 @@ import Login  from './components/Login'
 import CreateAccount  from "./components/CreateAccount"
 import HomePage from './components/HomePage'
 import CreateHissab from "./components/CreateHissab";
+import EditHissab from "./components/EditHissab";
 
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
          <Route path="/create"  element={<CreateAccount/>} />
          <Route path="/home" element={<HomePage/>}/>
          <Route path="/home/CreateHissab" element={<CreateHissab/>} />
+         <Route path="/home/edit/CreateHissab/:id" element={<EditHissab/>} />
        </Routes>
     </>
   )

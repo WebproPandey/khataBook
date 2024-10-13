@@ -21,7 +21,6 @@ const CreateHissab = () => {
         const existingHissb = JSON.parse(localStorage.getItem("hissab")) || [];
         existingHissb.push(newHissab)
         localStorage.setItem("hissab", JSON.stringify(existingHissb))
-        // console.log(newHissab);
         setDescription("")
         setIsEncrypted(false)
         setTitle("")
@@ -29,6 +28,7 @@ const CreateHissab = () => {
         navigate(-1)
 
     };
+   
 
     return (
         <div className="container mx-auto p-4">
