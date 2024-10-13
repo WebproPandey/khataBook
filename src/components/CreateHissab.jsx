@@ -1,17 +1,32 @@
 import React, { useState } from 'react';
+import {nanoid}   from 'nanoid';
+import { useNavigate } from 'react-router-dom';
 
 const CreateHissab = () => {
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
     const [isEncrypted, setIsEncrypted] = useState(false);
     const [password, setPassword] = useState('');
+    let navigate =  useNavigate()
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log({ title, description, isEncrypted, password });
+        const  newHissab = {
+            id: nanoid(),
+            title,
+            description,
+            isEncrypted,
+            password,
+        }
+        const existingHissb = JSON.parse(localStorage.getItem("hissab")) || [];
+        existingHissb.push(newHissab)
+        localStorage.setItem("hissab", JSON.stringify(existingHissb))
+        // console.log(newHissab);
         setDescription("")
-        setIsEncrypted("")
+        setIsEncrypted(false)
         setTitle("")
+        setPassword("")
+        navigate(-1)
 
     };
 
